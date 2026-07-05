@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>ARCRA | American RC Rally Association</title>
+
   <meta
     name="description"
-    content="American RC Rally Association — a growing directory for RC rally clubs, events, and drivers across the United States."
+    content="ARCRA is a grassroots directory for RC rally clubs, organizers, events, and drivers across the United States."
   />
 
   <style>
     :root {
-      --ink: #151515;
+      --black: #111211;
+      --charcoal: #242622;
       --paper: #f4f1e8;
-      --orange: #e65320;
-      --yellow: #f4c840;
-      --line: #d6d0c3;
-      --muted: #6b675f;
-      --card: #ffffff;
-      --max-width: 1160px;
+      --white: #ffffff;
+      --orange: #e85d25;
+      --orange-dark: #b94316;
+      --yellow: #f3c84c;
+      --green: #5f7558;
+      --line: #d6d0c2;
+      --muted: #6f6b62;
+      --max-width: 1180px;
     }
 
     * {
@@ -31,9 +36,9 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
       background: var(--paper);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.5;
     }
 
@@ -46,388 +51,598 @@
       margin: 0 auto;
     }
 
+    /* HEADER */
+
     header {
-      background: var(--ink);
-      color: white;
+      background: var(--black);
       border-bottom: 5px solid var(--orange);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .topbar {
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      min-height: 82px;
+      gap: 24px;
     }
 
     .brand {
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: -1px;
+      gap: 13px;
+      text-decoration: none;
+      color: var(--white);
     }
 
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border: 3px solid var(--yellow);
-      color: var(--yellow);
-      font-weight: 900;
-      font-size: 15px;
-      letter-spacing: -2px;
-      transform: skew(-8deg);
+    .brand-stripes {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 34px;
+      transform: skew(-12deg);
     }
 
-    .brand-text {
+    .brand-stripes span {
+      display: block;
+      width: 6px;
+      background: var(--orange);
+    }
+
+    .brand-stripes span:nth-child(1) {
+      height: 17px;
+    }
+
+    .brand-stripes span:nth-child(2) {
+      height: 26px;
+      background: var(--yellow);
+    }
+
+    .brand-stripes span:nth-child(3) {
+      height: 34px;
+    }
+
+    .brand-name {
       display: flex;
       flex-direction: column;
       line-height: 1;
     }
 
-    .brand-text strong {
-      font-size: 23px;
+    .brand-name strong {
+      font-size: 28px;
+      letter-spacing: -1.8px;
+      font-weight: 900;
     }
 
-    .brand-text span {
-      font-size: 10px;
-      letter-spacing: 1.4px;
+    .brand-name small {
       margin-top: 5px;
-      color: #d2d2d2;
+      color: #c9c9c9;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 22px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     nav a {
-      color: white;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
     }
 
     nav a:hover {
       color: var(--yellow);
     }
 
+    /* HERO */
+
     .hero {
-      padding: 84px 0 64px;
-      background:
-        linear-gradient(120deg, rgba(21, 21, 21, 0.94), rgba(21, 21, 21, 0.79)),
-        url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=80")
-        center/cover;
-      color: white;
+      overflow: hidden;
+      position: relative;
+      background: var(--black);
+      color: var(--white);
+      padding: 84px 0 74px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 42px;
-      align-items: end;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      right: -290px;
+      top: -335px;
+      border: 60px solid var(--orange);
+      border-radius: 50%;
+      opacity: 0.96;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -200px;
+      top: -220px;
+      border: 28px solid var(--yellow);
+      border-radius: 50%;
+      opacity: 0.95;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
     }
 
     .eyebrow {
       display: inline-block;
-      padding: 7px 10px;
       background: var(--orange);
-      font-weight: 800;
-      font-size: 12px;
-      text-transform: uppercase;
+      color: var(--white);
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 900;
       letter-spacing: 1px;
-      margin-bottom: 16px;
+      text-transform: uppercase;
     }
 
     h1 {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(42px, 7vw, 82px);
-      line-height: 0.95;
-      letter-spacing: -4px;
+      margin: 18px 0 0;
+      max-width: 780px;
+      font-size: clamp(48px, 7.5vw, 88px);
+      line-height: 0.91;
+      letter-spacing: -4.5px;
       text-transform: uppercase;
     }
 
-    .hero p {
-      max-width: 620px;
-      font-size: 18px;
-      color: #eeeeee;
+    .hero-copy {
+      max-width: 635px;
       margin: 24px 0 0;
+      color: #e8e8e8;
+      font-size: 18px;
     }
 
-    .hero-card {
-      background: var(--yellow);
-      color: var(--ink);
-      padding: 24px;
-      border: 5px solid white;
-    }
-
-    .hero-card strong {
-      display: block;
-      font-size: 16px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .hero-card p {
-      color: var(--ink);
-      margin: 0 0 18px;
-      font-size: 15px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-block;
-      padding: 13px 17px;
       background: var(--orange);
-      color: white;
-      text-decoration: none;
-      font-weight: 800;
       border: 2px solid var(--orange);
-      transition: 0.2s ease;
+      color: var(--white);
+      padding: 13px 17px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.18s ease;
     }
 
     .button:hover {
-      background: white;
+      background: var(--white);
       color: var(--orange);
     }
 
-    .button-dark {
-      background: var(--ink);
-      border-color: var(--ink);
+    .button-outline {
+      background: transparent;
+      border-color: var(--white);
+      color: var(--white);
     }
 
-    .button-dark:hover {
-      color: var(--ink);
-      background: white;
+    .button-outline:hover {
+      background: var(--white);
+      color: var(--black);
     }
+
+    /* STATS */
+
+    .stats {
+      background: var(--yellow);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+      min-height: 125px;
+      padding: 25px;
+      border-right: 2px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .stat-label {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
 
     section {
-      padding: 72px 0;
+      padding: 76px 0;
     }
 
     .section-heading {
       display: flex;
-      align-items: end;
+      gap: 28px;
+      align-items: flex-end;
       justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
     h2 {
       margin: 0;
-      font-size: clamp(30px, 4vw, 48px);
-      text-transform: uppercase;
-      letter-spacing: -2px;
+      font-size: clamp(32px, 4.5vw, 52px);
       line-height: 0.95;
+      letter-spacing: -2.8px;
+      text-transform: uppercase;
     }
 
     .section-heading p {
       margin: 0;
-      max-width: 560px;
+      max-width: 580px;
       color: var(--muted);
-    }
-
-    .directory-tools {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .directory-tools input {
-      width: 100%;
-      padding: 15px;
-      border: 2px solid var(--ink);
-      background: white;
       font-size: 16px;
     }
 
+    /* DIRECTORY */
+
+    .directory-tools {
+      display: grid;
+      grid-template-columns: 1fr 210px;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .directory-tools input,
     .directory-tools select {
-      padding: 15px;
-      border: 2px solid var(--ink);
-      background: white;
+      width: 100%;
+      min-height: 52px;
+      border: 2px solid var(--black);
+      border-radius: 0;
+      background: var(--white);
+      color: var(--black);
+      padding: 12px 14px;
       font-size: 15px;
-      font-weight: 700;
+      outline: none;
+    }
+
+    .directory-tools input:focus,
+    .directory-tools select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232, 93, 37, 0.16);
+    }
+
+    .directory-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin: -6px 0 20px;
     }
 
     .club-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 17px;
     }
 
     .club-card {
-      background: var(--card);
-      border: 2px solid var(--ink);
-      padding: 22px;
+      background: var(--white);
+      border: 2px solid var(--black);
       display: flex;
       flex-direction: column;
-      min-height: 255px;
+      min-height: 310px;
+      padding: 22px;
     }
 
     .club-card.hidden {
       display: none;
     }
 
-    .club-location {
-      color: var(--orange);
-      text-transform: uppercase;
+    .club-card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .club-region {
+      color: var(--orange-dark);
+      font-size: 11px;
       font-weight: 900;
-      font-size: 12px;
       letter-spacing: 0.8px;
-      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .club-type {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 5px 7px;
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
     }
 
     .club-card h3 {
-      font-size: 24px;
-      margin: 0 0 10px;
-      line-height: 1.05;
+      margin: 18px 0 10px;
+      font-size: 25px;
+      line-height: 0.98;
+      letter-spacing: -1px;
     }
 
     .club-card p {
-      color: var(--muted);
       margin: 0;
-      font-size: 15px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .club-links {
       margin-top: auto;
       padding-top: 20px;
       display: flex;
+      gap: 8px;
       flex-wrap: wrap;
-      gap: 10px;
     }
 
     .club-links a {
-      font-weight: 800;
-      font-size: 13px;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 900;
       text-decoration: none;
-      border-bottom: 2px solid var(--orange);
     }
 
     .club-links a:hover {
-      color: var(--orange);
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
     }
+
+    /* HOW IT WORKS */
+
+    .how-it-works {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .how-it-works .section-heading p {
+      color: #e8eee3;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      padding: 24px;
+      min-height: 230px;
+    }
+
+    .step-number {
+      color: var(--yellow);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .step h3 {
+      margin: 28px 0 9px;
+      font-size: 27px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .step p {
+      margin: 0;
+      color: #edf1ea;
+      font-size: 15px;
+    }
+
+    /* ABOUT */
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 17px;
     }
 
-    .about-box {
-      border: 2px solid var(--ink);
-      padding: 28px;
-      background: white;
+    .about-main,
+    .about-side {
+      border: 2px solid var(--black);
+      padding: 30px;
     }
 
-    .about-box.dark {
-      background: var(--ink);
-      color: white;
+    .about-main {
+      background: var(--white);
     }
 
-    .about-box h3 {
-      margin: 0 0 10px;
-      font-size: 25px;
-      text-transform: uppercase;
+    .about-main p {
+      max-width: 670px;
+      margin: 18px 0 0;
+      font-size: 18px;
+    }
+
+    .about-side {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .about-side h3 {
+      margin: 0 0 12px;
+      font-size: 26px;
       line-height: 1;
+      text-transform: uppercase;
     }
 
-    .about-box p {
+    .about-side p {
       margin: 0;
+      color: #d7d7d7;
+      font-size: 15px;
     }
+
+    /* SUBMIT */
 
     .submit {
       background: var(--orange);
-      color: white;
+      color: var(--white);
     }
 
     .submit-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 40px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
       align-items: center;
     }
 
     .submit h2 {
-      color: white;
+      max-width: 700px;
     }
 
     .submit p {
+      max-width: 670px;
       margin: 18px 0 0;
       font-size: 18px;
-      max-width: 680px;
     }
 
     .submit .button {
-      background: white;
-      color: var(--orange);
-      border-color: white;
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--orange-dark);
     }
 
     .submit .button:hover {
-      background: var(--ink);
-      border-color: var(--ink);
-      color: white;
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
     }
 
+    /* FOOTER */
+
     footer {
-      background: var(--ink);
-      color: white;
-      padding: 28px 0;
+      background: var(--black);
+      color: var(--white);
+      padding: 30px 0;
     }
 
     .footer-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .footer-row p {
       margin: 0;
       color: #cfcfcf;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .footer-row a {
       color: var(--yellow);
-      font-weight: 800;
+      font-size: 13px;
+      font-weight: 900;
       text-decoration: none;
     }
 
-    @media (max-width: 860px) {
-      .hero-grid,
-      .submit-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
+    /* MOBILE */
 
+    @media (max-width: 900px) {
       .club-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .about-grid,
+      .submit-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 650px) {
       .topbar {
-        padding: 16px 0;
+        min-height: auto;
+        padding: 15px 0;
         align-items: flex-start;
         flex-direction: column;
       }
 
       nav {
         justify-content: flex-start;
-        gap: 14px;
+        gap: 15px;
       }
 
       .hero {
-        padding: 64px 0 50px;
+        padding: 65px 0 58px;
+      }
+
+      .hero::before {
+        width: 430px;
+        height: 430px;
+        right: -270px;
+        top: -190px;
+        border-width: 45px;
+      }
+
+      .hero::after {
+        width: 300px;
+        height: 300px;
+        right: -185px;
+        top: -130px;
+      }
+
+      h1 {
+        letter-spacing: -2.7px;
+      }
+
+      .stats-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: 100px;
+        border-right: none;
+        border-bottom: 2px solid var(--black);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
       }
 
       .section-heading {
@@ -442,6 +657,10 @@
       .club-grid {
         grid-template-columns: 1fr;
       }
+
+      section {
+        padding: 58px 0;
+      }
     }
   </style>
 </head>
@@ -449,43 +668,66 @@
 <body>
   <header>
     <div class="container topbar">
-      <a href="#top" class="brand" aria-label="ARCRA Home">
-        <span class="brand-mark">ARCRA</span>
-        <span class="brand-text">
+      <a class="brand" href="#top" aria-label="ARCRA home">
+        <span class="brand-stripes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <span class="brand-name">
           <strong>ARCRA</strong>
-          <span>AMERICAN RC RALLY ASSOCIATION</span>
+          <small>American RC Rally Association</small>
         </span>
       </a>
 
       <nav>
         <a href="#directory">Directory</a>
+        <a href="#how-it-works">How It Works</a>
         <a href="#about">About</a>
-        <a href="#add-club">Add Your Club</a>
+        <a href="#add-a-club">Add a Club</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
+      <div class="container">
+        <div class="hero-content">
           <span class="eyebrow">United States RC Rally Directory</span>
-          <h1>Find Your Next Rally.</h1>
-          <p>
-            ARCRA connects RC rally clubs, drivers, event organizers, and
-            newcomers across the United States. Find groups near you, discover
-            events, and help grow the RC rally scene.
+
+          <h1>Find the RC Rally Scene Near You.</h1>
+
+          <p class="hero-copy">
+            ARCRA is a grassroots directory for RC rally clubs, organizers,
+            events, and drivers across the United States. Find your local group,
+            discover a rally weekend, or help put a new club on the map.
           </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#directory">Browse the Directory</a>
+            <a class="button button-outline" href="#add-a-club">Add Your Club</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <span class="stat-number">9</span>
+          <span class="stat-label">Verified Listings</span>
         </div>
 
-        <aside class="hero-card">
-          <strong>Build the directory.</strong>
-          <p>
-            Know a club, event series, or active RC rally group that should be
-            listed here?
-          </p>
-          <a class="button button-dark" href="#add-club">Add a Club</a>
-        </aside>
+        <div class="stat">
+          <span class="stat-number">7</span>
+          <span class="stat-label">States Represented</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Growing National Directory</span>
+        </div>
       </div>
     </section>
 
@@ -493,9 +735,10 @@
       <div class="container">
         <div class="section-heading">
           <h2>Club Directory</h2>
+
           <p>
-            This is the first wave of clubs and organizers helping establish a
-            national RC rally community.
+            Clubs, organizers, portable rally programs, and event series that
+            actively support RC rally and rallycross in the United States.
           </p>
         </div>
 
@@ -503,40 +746,57 @@
           <input
             id="clubSearch"
             type="search"
-            placeholder="Search by club name, city, or state..."
+            placeholder="Search by name, state, region, or event..."
             aria-label="Search the club directory"
           />
 
-          <select id="stateFilter" aria-label="Filter clubs by state">
-            <option value="">All States</option>
-            <option value="Florida">Florida</option>
-            <option value="New York">New York</option>
-            <option value="New Jersey">New Jersey</option>
-            <option value="Oregon">Oregon</option>
-            <option value="Utah">Utah</option>
+          <select id="typeFilter" aria-label="Filter by listing type">
+            <option value="">All listings</option>
+            <option value="club">Clubs</option>
+            <option value="event">Events and series</option>
+            <option value="program">Programs</option>
           </select>
         </div>
 
+        <p class="directory-note">
+          Every listing below includes a real public Facebook page, Instagram,
+          YouTube channel, or official website.
+        </p>
+
         <div class="club-grid" id="clubGrid">
+
           <article
             class="club-card"
-            data-search="tampa bay rc rally raids tampa florida fl"
-            data-state="Florida"
+            data-search="tampa bay rc rally raids tampa florida southeast grom rally rallycross"
+            data-type="club"
           >
-            <div class="club-location">Tampa, Florida</div>
+            <div class="club-card-top">
+              <span class="club-region">Tampa, Florida</span>
+              <span class="club-type">Club</span>
+            </div>
+
             <h3>Tampa Bay RC Rally Raids</h3>
+
             <p>
-              Casual DIY RC rally, rallycross, and raid events with mixed
-              terrain, cones, timed stages, and all types of RC vehicles.
+              Grassroots RC rally, rallycross, and raid events using mixed
+              terrain, timed stages, gates, cones, and a casual all-vehicles-welcome format.
             </p>
+
             <div class="club-links">
+              <a
+                href="https://www.facebook.com/groups/4247315412250202/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
+
               <a
                 href="https://www.instagram.com/tamparcrallyraids/"
                 target="_blank"
                 rel="noopener"
               >Instagram</a>
+
               <a
-                href="https://www.youtube.com/@TampaRCrallyraids"
+                href="https://www.youtube.com/@TampaRCRallyRaids"
                 target="_blank"
                 rel="noopener"
               >YouTube</a>
@@ -545,82 +805,271 @@
 
           <article
             class="club-card"
-            data-search="pnw rally league pacific northwest oregon washington"
-            data-state="Oregon"
+            data-search="pnw rc rally league pacific northwest portland oregon washington 1/10 stage rally"
+            data-type="club"
           >
-            <div class="club-location">Pacific Northwest</div>
-            <h3>PNW Rally League</h3>
+            <div class="club-card-top">
+              <span class="club-region">Pacific Northwest</span>
+              <span class="club-type">Club</span>
+            </div>
+
+            <h3>PNW RC Rally League</h3>
+
             <p>
-              Regional RC rally community serving drivers throughout the
-              Pacific Northwest.
+              Pacific Northwest organizer hosting and promoting 1/10-scale RC
+              rally events, including stage-rally style competition.
             </p>
+
             <div class="club-links">
-              <a href="#" onclick="return false;">Club Link Coming Soon</a>
+              <a
+                href="https://www.facebook.com/people/PNW-RC-Rally-League/61590664451734/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
             </div>
           </article>
 
           <article
             class="club-card"
-            data-search="destination rally orlando florida fl"
-            data-state="Florida"
+            data-search="destination rally rc california west coast point to point stage rally"
+            data-type="club"
           >
-            <div class="club-location">Orlando Area, Florida</div>
-            <h3>Destination Rally</h3>
+            <div class="club-card-top">
+              <span class="club-region">California</span>
+              <span class="club-type">Club</span>
+            </div>
+
+            <h3>Destination Rally RC</h3>
+
             <p>
-              Florida-based RC rally activity and events for drivers looking
-              for scale rally competition and community.
+              California RC rally group that meets at different locations and
+              uses changing rally-inspired course layouts.
             </p>
+
             <div class="club-links">
-              <a href="#" onclick="return false;">Club Link Coming Soon</a>
+              <a
+                href="https://www.facebook.com/groups/1474573080133820/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
             </div>
           </article>
 
           <article
             class="club-card"
-            data-search="western new york rc rally ny"
-            data-state="New York"
+            data-search="socal rc rally runners southern california point to point scale rally"
+            data-type="club"
           >
-            <div class="club-location">Western New York</div>
-            <h3>Western New York RC Rally</h3>
+            <div class="club-card-top">
+              <span class="club-region">Southern California</span>
+              <span class="club-type">Club</span>
+            </div>
+
+            <h3>SoCal RC Rally Runners</h3>
+
             <p>
-              A growing RC rally community in western New York. Listing details
-              are being gathered.
+              Southern California group dedicated primarily to scale,
+              point-to-point RC rally driving and a supportive local community.
             </p>
+
             <div class="club-links">
-              <a href="#" onclick="return false;">Club Link Coming Soon</a>
+              <a
+                href="https://www.facebook.com/groups/610762142448176/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
             </div>
           </article>
 
           <article
             class="club-card"
-            data-search="south jersey cost controlled rally new jersey nj"
-            data-state="New Jersey"
+            data-search="utah rc rally club salt lake city liberty park mountain west"
+            data-type="club"
           >
-            <div class="club-location">South Jersey</div>
-            <h3>Cost-Controlled Rally</h3>
+            <div class="club-card-top">
+              <span class="club-region">Utah</span>
+              <span class="club-type">Club</span>
+            </div>
+
+            <h3>Utah RC Rally Club</h3>
+
             <p>
-              RC rally racing with an emphasis on affordable, accessible
-              competition.
+              An active Utah RC rally community coordinating local rally events,
+              including public meetups around the Salt Lake City area.
             </p>
+
             <div class="club-links">
-              <a href="#" onclick="return false;">Club Link Coming Soon</a>
+              <a
+                href="https://www.facebook.com/groups/892783736526622/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
             </div>
           </article>
 
           <article
             class="club-card"
-            data-search="utah rc rally club salt lake utah"
-            data-state="Utah"
+            data-search="all terrain rc rally series western new york buffalo wide open rc point to point rallycross"
+            data-type="club"
           >
-            <div class="club-location">Utah</div>
-            <h3>Utah RC Rally Community</h3>
-            <p>
-              An active western RC rally scene. Specific club information will
-              be added as the directory grows.
-            </p>
-            <div class="club-links">
-              <a href="#" onclick="return false;">Club Link Coming Soon</a>
+            <div class="club-card-top">
+              <span class="club-region">Western New York</span>
+              <span class="club-type">Club</span>
             </div>
+
+            <h3>All-Terrain RC Rally Series</h3>
+
+            <p>
+              Western New York rallycross and point-to-point RC rally series
+              with events hosted around the Buffalo-area RC community.
+            </p>
+
+            <div class="club-links">
+              <a
+                href="https://www.facebook.com/groups/509547721873706/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
+            </div>
+          </article>
+
+          <article
+            class="club-card"
+            data-search="south jersey cost controlled rally new jersey philadelphia stage rally affordable"
+            data-type="club"
+          >
+            <div class="club-card-top">
+              <span class="club-region">South Jersey</span>
+              <span class="club-type">Club</span>
+            </div>
+
+            <h3>South Jersey Cost Controlled Rally</h3>
+
+            <p>
+              A South Jersey RC rally community focused on accessible,
+              cost-conscious stage-rally competition and organized race formats.
+            </p>
+
+            <div class="club-links">
+              <a
+                href="https://www.facebook.com/groups/231646397910839/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
+            </div>
+          </article>
+
+          <article
+            class="club-card"
+            data-search="ledgestock new hampshire new england pro rally x rallycross event series"
+            data-type="event"
+          >
+            <div class="club-card-top">
+              <span class="club-region">New Hampshire / New England</span>
+              <span class="club-type">Event Series</span>
+            </div>
+
+            <h3>Ledgestock / Pro Rally X</h3>
+
+            <p>
+              A major Northeast RC gathering with multiple competition formats,
+              including its own Pro Rally X division and rally-focused events.
+            </p>
+
+            <div class="club-links">
+              <a
+                href="https://www.ledgestock.com/"
+                target="_blank"
+                rel="noopener"
+              >Website</a>
+
+              <a
+                href="https://www.facebook.com/ledgestock/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
+
+              <a
+                href="https://www.instagram.com/ledgestock_official/"
+                target="_blank"
+                rel="noopener"
+              >Instagram</a>
+            </div>
+          </article>
+
+          <article
+            class="club-card"
+            data-search="pop up rally popuprally glens falls new york youth program portable rally"
+            data-type="program"
+          >
+            <div class="club-card-top">
+              <span class="club-region">Glens Falls, New York</span>
+              <span class="club-type">Program</span>
+            </div>
+
+            <h3>Pop-Up Rally</h3>
+
+            <p>
+              A portable RC rally program that builds rally-style courses for
+              events, youth programs, workshops, and community gatherings.
+            </p>
+
+            <div class="club-links">
+              <a
+                href="https://www.popuprallyrc.com/"
+                target="_blank"
+                rel="noopener"
+              >Website</a>
+
+              <a
+                href="https://www.facebook.com/popuprally/"
+                target="_blank"
+                rel="noopener"
+              >Facebook</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How ARCRA Works</h2>
+
+          <p>
+            This is not a sanctioning body or a paid listing site. It is a
+            practical map of the RC rally scene as it grows.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01</span>
+            <h3>Find a Group</h3>
+            <p>
+              Search clubs, event weekends, and organizers in your region. Use
+              the social links to see current dates, locations, and vehicle rules.
+            </p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">02</span>
+            <h3>Show Up</h3>
+            <p>
+              Every local scene runs differently. Some are timed stage rallies,
+              some are rallycross, some are trail-oriented, and some welcome any RC vehicle.
+            </p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">03</span>
+            <h3>Build the Map</h3>
+            <p>
+              Know another good club? Submit it. The goal is a directory that
+              helps every local organizer get found by the next driver.
+            </p>
           </article>
         </div>
       </div>
@@ -629,52 +1078,62 @@
     <section id="about">
       <div class="container">
         <div class="section-heading">
-          <h2>What Is ARCRA?</h2>
+          <h2>About ARCRA</h2>
+
           <p>
-            A central starting point for anyone who wants to find, build, or
-            support RC rally in America.
+            One place for the scattered but growing RC rally community in America.
           </p>
         </div>
 
         <div class="about-grid">
-          <div class="about-box">
-            <h3>For Drivers</h3>
+          <div class="about-main">
+            <h3>American RC Rally Association</h3>
+
             <p>
-              Find nearby clubs, event organizers, social groups, and new
-              places to race. Whether you run a 1/10 rally car, a Mojave Grom,
-              or something unusual, there is room in the RC rally world.
+              ARCRA exists to make RC rally easier to find. Whether your local
+              scene runs 1/10 scale rally cars, short course trucks, Mojave
+              Groms, old Tamiya chassis, or something completely different,
+              there is room in the directory.
+            </p>
+
+            <p>
+              Listings are free. A club does not need to be large or formal to
+              be included. A Facebook group, Instagram page, YouTube channel,
+              website, or recurring event is enough to get started.
             </p>
           </div>
 
-          <div class="about-box dark">
-            <h3>For Organizers</h3>
+          <aside class="about-side">
+            <h3>What This Is Not</h3>
+
             <p>
-              Put your group on the map. Share your location, social links,
-              event format, and the kinds of vehicles your local community
-              runs.
+              ARCRA does not set national vehicle rules, charge clubs to be
+              listed, or claim ownership of anyone’s local event. It is simply
+              a place to help drivers find the people already doing good work.
             </p>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="submit" id="add-club">
+    <section class="submit" id="add-a-club">
       <div class="container submit-grid">
         <div>
           <h2>Know a Club We Missed?</h2>
+
           <p>
-            ARCRA is building a real directory of RC rally clubs and
-            communities. Send the club name, location, and a Facebook,
-            Instagram, YouTube, or website link.
+            Send the club name, location, and at least one Facebook, Instagram,
+            YouTube, or website link. We will add it to the directory after it
+            is verified.
           </p>
         </div>
 
         <div>
           <a
             class="button"
-            href="mailto:americanrcrallyassociation@gmail.com?subject=ARCRA%20Club%20Directory%20Submission"
+            href="mailto:TampaRCrallyraids@gmail.com?subject=ARCRA%20Directory%20Submission&body=Club%20or%20event%20name%3A%0A%0ALocation%3A%0A%0AFacebook%2C%20Instagram%2C%20YouTube%2C%20or%20website%20link%3A%0A%0AAnything%20else%20people%20should%20know%3A"
           >
-            Submit a Club by Email
+            Submit a Listing
           </a>
         </div>
       </div>
@@ -683,33 +1142,33 @@
 
   <footer>
     <div class="container footer-row">
-      <p>© 2026 American RC Rally Association</p>
+      <p>© 2026 American RC Rally Association. Independent grassroots directory.</p>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 
   <script>
     const searchInput = document.getElementById("clubSearch");
-    const stateFilter = document.getElementById("stateFilter");
-    const cards = document.querySelectorAll(".club-card");
+    const typeFilter = document.getElementById("typeFilter");
+    const clubCards = document.querySelectorAll(".club-card");
 
-    function filterClubs() {
+    function filterDirectory() {
       const searchText = searchInput.value.toLowerCase().trim();
-      const selectedState = stateFilter.value;
+      const selectedType = typeFilter.value;
 
-      cards.forEach((card) => {
-        const cardText = card.dataset.search.toLowerCase();
-        const cardState = card.dataset.state;
+      clubCards.forEach((card) => {
+        const searchableText = card.dataset.search.toLowerCase();
+        const cardType = card.dataset.type;
 
-        const matchesSearch = cardText.includes(searchText);
-        const matchesState = !selectedState || cardState === selectedState;
+        const matchesSearch = searchableText.includes(searchText);
+        const matchesType = !selectedType || cardType === selectedType;
 
-        card.classList.toggle("hidden", !(matchesSearch && matchesState));
+        card.classList.toggle("hidden", !(matchesSearch && matchesType));
       });
     }
 
-    searchInput.addEventListener("input", filterClubs);
-    stateFilter.addEventListener("change", filterClubs);
+    searchInput.addEventListener("input", filterDirectory);
+    typeFilter.addEventListener("change", filterDirectory);
   </script>
 </body>
 </html>
