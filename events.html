@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>RC Rally Events | ARCRA</title>
+
   <meta
     name="description"
     content="Find upcoming RC rally, rallycross, rally raid, and stage rally events across the United States with the American RC Rally Association."
@@ -48,8 +49,6 @@
       width: min(var(--max-width), calc(100% - 32px));
       margin: 0 auto;
     }
-
-    /* HEADER */
 
     header {
       position: sticky;
@@ -140,8 +139,6 @@
     nav a.active {
       color: var(--yellow);
     }
-
-    /* HERO */
 
     .hero {
       position: relative;
@@ -241,8 +238,6 @@
       color: var(--black);
     }
 
-    /* STATS */
-
     .stats {
       background: var(--yellow);
       border-bottom: 2px solid var(--black);
@@ -282,8 +277,6 @@
       text-transform: uppercase;
     }
 
-    /* SECTIONS */
-
     section {
       padding: 76px 0;
     }
@@ -311,8 +304,6 @@
       font-size: 16px;
     }
 
-    /* CALENDAR */
-
     .calendar-shell {
       background: var(--white);
       border: 2px solid var(--black);
@@ -331,8 +322,6 @@
       color: var(--muted);
       font-size: 13px;
     }
-
-    /* HOW IT WORKS */
 
     .how-it-works {
       background: var(--green);
@@ -375,8 +364,6 @@
       font-size: 15px;
     }
 
-    /* SUBMISSION SECTION */
-
     .submit {
       background: var(--orange);
       color: var(--white);
@@ -418,8 +405,6 @@
       font-size: 13px;
     }
 
-    /* FOOTER */
-
     footer {
       background: var(--black);
       color: var(--white);
@@ -446,8 +431,6 @@
       font-weight: 900;
       text-decoration: none;
     }
-
-    /* MOBILE */
 
     @media (max-width: 900px) {
       .steps,
@@ -523,7 +506,8 @@
   </style>
 </head>
 
-<body>
+<body id="top">
+
   <header>
     <div class="container topbar">
       <a class="brand" href="index.html" aria-label="ARCRA home">
@@ -542,7 +526,7 @@
       <nav>
         <a href="what-is-rc-rally.html">What Is RC Rally?</a>
         <a href="index.html#directory">Directory</a>
-        <a class="active" href="events.html" aria-current="page">Events</a>
+        <a class="active" href="events.html">Events</a>
         <a href="about-arcra.html">About ARCRA</a>
         <a href="index.html#support">Support</a>
         <a href="index.html#add-a-club">Add a Club</a>
@@ -551,6 +535,7 @@
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -672,11 +657,11 @@
         </div>
 
         <div>
-          <!-- Replace the # below with your Google Form link after we build it. -->
           <a
             class="button"
-            href="#"
-            id="submitEventButton"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfo5wIHwBWqKHeXMhsHH4EAjulKgAYXkRw8qB9CSuzivNC4zg/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener"
           >Submit an Event</a>
 
           <p class="submit-note">
@@ -685,15 +670,16 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container footer-row">
       <p>© 2026 American RC Rally Association. Independent grassroots directory.</p>
-      <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-        Back to top ↑
-      </a>
+
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
+
 </body>
 </html>
