@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>What Is RC Rally? | ARCRA</title>
+
+  <meta
+    name="description"
+    content="Learn what RC rally is, how stage rally and rallycross differ, how scale changes the experience, and how to find a local RC rally group."
+  />
+
+  <style>
+    :root {
+      --black: #111211;
+      --paper: #f4f1e8;
+      --white: #ffffff;
+      --orange: #e85d25;
+      --orange-dark: #b94316;
+      --yellow: #f3c84c;
+      --green: #5f7558;
+      --muted: #6f6b62;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--black);
+      border-bottom: 5px solid var(--orange);
+    }
+
+    .topbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .brand-stripes {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 34px;
+      transform: skew(-12deg);
+    }
+
+    .brand-stripes span {
+      display: block;
+      width: 6px;
+      background: var(--orange);
+    }
+
+    .brand-stripes span:nth-child(1) {
+      height: 17px;
+    }
+
+    .brand-stripes span:nth-child(2) {
+      height: 26px;
+      background: var(--yellow);
+    }
+
+    .brand-stripes span:nth-child(3) {
+      height: 34px;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name strong {
+      font-size: 28px;
+      letter-spacing: -1.8px;
+      font-weight: 900;
+    }
+
+    .brand-name small {
+      margin-top: 5px;
+      color: #c9c9c9;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+      padding: 88px 0 80px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 640px;
+      height: 640px;
+      right: -245px;
+      top: -300px;
+      border: 58px solid var(--orange);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -165px;
+      top: -190px;
+      border: 28px solid var(--yellow);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 840px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--orange);
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      max-width: 830px;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 0.92;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: #e8e8e8;
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 17px;
+      background: var(--orange);
+      border: 2px solid var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.18s ease;
+    }
+
+    .button:hover {
+      background: var(--white);
+      color: var(--orange);
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 4.5vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -2.8px;
+      text-transform: uppercase;
+    }
+
+    .section-heading p {
+      max-width: 575px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .intro-grid,
+    .compare-grid,
+    .resource-grid,
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .intro-main,
+    .intro-side,
+    .compare-card,
+    .resource-card,
+    .club-note {
+      border: 2px solid var(--black);
+      padding: 30px;
+    }
+
+    .intro-main,
+    .compare-card,
+    .resource-card {
+      background: var(--white);
+    }
+
+    .intro-main h3,
+    .compare-card h3,
+    .resource-card h3,
+    .club-note h3 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .intro-main p,
+    .compare-card p,
+    .club-note p {
+      margin: 18px 0 0;
+      font-size: 17px;
+    }
+
+    .intro-side {
+      background: var(--yellow);
+    }
+
+    .intro-side ul {
+      margin: 20px 0 0;
+      padding-left: 20px;
+      font-weight: 700;
+    }
+
+    .intro-side li {
+      margin-bottom: 10px;
+    }
+
+    .format-section {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .format-section .section-heading p {
+      color: #e8eee3;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    .format-card {
+      min-height: 285px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      padding: 28px;
+    }
+
+    .format-card h3 {
+      margin: 0;
+      color: var(--yellow);
+      font-size: 30px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .format-card p {
+      margin: 20px 0 0;
+      color: #edf1ea;
+      font-size: 16px;
+    }
+
+    .club-note {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .club-note p {
+      color: #dddddd;
+    }
+
+    .club-note strong {
+      color: var(--yellow);
+    }
+
+    .resources {
+      background: var(--white);
+    }
+
+    .resource-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .resource-card {
+      min-height: 270px;
+    }
+
+    .resource-card h3 {
+      font-size: 25px;
+    }
+
+    .resource-card p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .resource-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .resource-links a {
+      padding: 9px 11px;
+      border: 2px solid var(--black);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .resource-links a:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .cta {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .cta-grid {
+      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .cta p {
+      max-width: 680px;
+      margin: 20px 0 0;
+      font-size: 18px;
+    }
+
+    .cta .button {
+      margin-top: 0;
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--orange-dark);
+    }
+
+    .cta .button:hover {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-row p {
+      margin: 0;
+      color: #cfcfcf;
+      font-size: 13px;
+    }
+
+    .footer-row a {
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .intro-grid,
+      .compare-grid,
+      .resource-grid,
+      .cta-grid,
+      .format-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        min-height: auto;
+        padding: 15px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 64px 0 58px;
+      }
+
+      .hero::before {
+        width: 420px;
+        height: 420px;
+        right: -260px;
+        top: -185px;
+        border-width: 45px;
+      }
+
+      .hero::after {
+        width: 290px;
+        height: 290px;
+        right: -178px;
+        top: -125px;
+      }
+
+      h1 {
+        letter-spacing: -2.8px;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="index.html" aria-label="ARCRA home">
+        <span class="brand-stripes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <span class="brand-name">
+          <strong>ARCRA</strong>
+          <small>American RC Rally Association</small>
+        </span>
+      </a>
+
+      <nav>
+        <a href="index.html#directory">Directory</a>
+        <a href="what-is-rc-rally.html">What Is RC Rally?</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#support">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Beginner Guide</span>
+
+          <h1>What Is RC Rally?</h1>
+
+          <p class="hero-copy">
+            RC rally is radio-control driving inspired by real rally racing.
+            Instead of remaining on one permanent track and repeating the same
+            corners all day, drivers tackle changing courses built from dirt,
+            gravel, grass, pavement, woods, sidewalks, parking lots, obstacles,
+            and temporary markers.
+          </p>
+
+          <a class="button" href="index.html#directory">Find a Club Near You</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Miniature Rally Stages</h2>
+
+          <p>
+            The goal is to drive a route cleanly and quickly while adapting to
+            the terrain, layout, and changing surface in front of you.
+          </p>
+        </div>
+
+        <div class="intro-grid">
+          <div class="intro-main">
+            <h3>More Than Going in Circles</h3>
+
+            <p>
+              A typical RC rally course feels like a miniature real rally stage:
+              begin at one point, follow the route, stay on course, and finish
+              with the best time possible.
+            </p>
+
+            <p>
+              Drivers often run one at a time against the clock. The challenge
+              is not only raw speed. It is keeping the car moving, choosing clean
+              lines, recovering from mistakes, and making it through the stage
+              without missing the intended route.
+            </p>
+          </div>
+
+          <aside class="intro-side">
+            <h3>Most RC Rally Courses Include</h3>
+
+            <ul>
+              <li>Timed stages, heats, or both</li>
+              <li>Mixed terrain and changing surfaces</li>
+              <li>Cones, gates, flags, tape, or checkpoints</li>
+              <li>Temporary DIY course layouts</li>
+              <li>Drivers walking with their cars</li>
+              <li>Scale rally cars, trucks, and unusual builds</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Vehicle Scale Changes the Stage</h2>
+
+          <p>
+            Bigger RC vehicles need more room and handle rough terrain better.
+            Smaller vehicles make a full rally stage possible almost anywhere.
+          </p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3>1/10 Scale</h3>
+
+            <p>
+              1/10 scale is the more traditional RC rally size. These cars carry
+              more speed, work well on rougher terrain, and need wider roads,
+              bigger gates, and more room to stretch out.
+            </p>
+
+            <p>
+              This is the scale most people picture when they think of a
+              four-wheel-drive rally car with a scale body and realistic rally
+              handling.
+            </p>
+          </article>
+
+          <article class="compare-card">
+            <h3>1/14 to 1/16 Scale</h3>
+
+            <p>
+              Smaller vehicles make rally cheaper, easier to transport, and easy
+              to build around almost anywhere. Sidewalks, baseball-field edges,
+              park trails, backyards, and small patches of woods can become full
+              stages.
+            </p>
+
+            <p>
+              The tradeoff is that pebbles, roots, cracks, and uneven ground
+              become much bigger obstacles at smaller scale.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="format-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Rallycross vs. Stage Rally</h2>
+
+          <p>
+            Both fit under the RC rally umbrella, but they create very different
+            experiences behind the transmitter.
+          </p>
+        </div>
+
+        <div class="format-grid">
+          <article class="format-card">
+            <h3>Point-to-Point Stage Rally</h3>
+
+            <p>
+              This is closest to full-size rally. Cars usually start individually
+              and travel from a start line to a finish line through turns,
+              terrain changes, gates, and checkpoints.
+            </p>
+
+            <p>
+              Drivers generally move with the car to keep it in sight, and the
+              lowest overall time is usually the goal.
+            </p>
+          </article>
+
+          <article class="format-card">
+            <h3>Rallycross</h3>
+
+            <p>
+              Rallycross uses a shorter course that can be run repeatedly. It may
+              be a compact loop, technical circuit, or mixed-surface course with
+              dirt, grass, gravel, pavement, jumps, and tight turns.
+            </p>
+
+            <p>
+              Depending on the club, it may use solo timed runs, small-group
+              heats, or wheel-to-wheel racing.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Every Club Does It Differently</h2>
+
+          <p>
+            That variety is one of the best parts of RC rally. There is no single
+            national course layout or vehicle class structure.
+          </p>
+        </div>
+
+        <div class="club-note">
+          <h3>Check Before You Attend</h3>
+
+          <p>
+            <strong>
+              Classes, vehicle rules, track rules, scoring, timing, gate
+              direction, and marshalling procedures vary by club.
+            </strong>
+            Check the organizer's event post, Facebook group, website, or
+            YouTube channel before attending.
+          </p>
+
+          <p>
+            The most common idea is simple: turns and route changes are marked
+            with cones, gates, flags, tape, or natural landmarks. Follow the
+            route, follow your car, and have fun.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Watch RC Rally</h2>
+
+          <p>
+            These channels are a good place to see the different ways RC rally
+            looks in Europe and the United States.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+          <article class="resource-card">
+            <h3>Europe</h3>
+
+            <p>
+              European RC rally has some of the most developed stage-rally scenes
+              in the hobby, with forest stages, organized events, onboard
+              footage, and detailed setup content.
+            </p>
+
+            <div class="resource-links">
+              <a href="https://www.youtube.com/@dariorcgarage" target="_blank" rel="noopener">
+                Dario RC Garage
+              </a>
+
+              <a href="https://www.youtube.com/@kaja_racing" target="_blank" rel="noopener">
+                Kája Racing
+              </a>
+
+              <a href="https://www.youtube.com/@Rconceaday" target="_blank" rel="noopener">
+                RC Once a Day
+              </a>
+            </div>
+          </article>
+
+          <article class="resource-card">
+            <h3>United States</h3>
+
+            <p>
+              American RC rally is more spread out, but local organizers are
+              building strong scenes through temporary stages, rallycross courses,
+              clubs, parks, and hobby-shop communities.
+            </p>
+
+            <div class="resource-links">
+              <a href="https://www.youtube.com/@WNYRC" target="_blank" rel="noopener">
+                WNY RC
+              </a>
+
+              <a href="https://www.youtube.com/@TampaRCRallyRaids" target="_blank" rel="noopener">
+                Tampa RC Rally Raids
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-grid">
+        <div>
+          <h2>Ready to Try It?</h2>
+
+          <p>
+            Find a local club, bring your RC car and charged batteries, ask about
+            the event format, and show up ready to drive. You do not need a
+            perfect scale build or expensive race gear to have a good first day.
+          </p>
+        </div>
+
+        <div>
+          <a class="button" href="index.html#directory">Browse the Directory</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>© 2026 American RC Rally Association. Independent grassroots directory.</p>
+      <a href="index.html">Back to ARCRA Home ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
