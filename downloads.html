@@ -1,1 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Downloads | ARCRA</title>
+
+  <meta
+    name="description"
+    content="Free downloadable RC rally course signs, start gate templates, billboard sheets, finish boards, and printable rally resources from ARCRA."
+  />
+
+  <style>
+    :root {
+      --black: #111211;
+      --charcoal: #242622;
+      --paper: #f4f1e8;
+      --white: #ffffff;
+      --orange: #e85d25;
+      --orange-dark: #b94316;
+      --yellow: #f3c84c;
+      --green: #5f7558;
+      --line: #d6d0c2;
+      --muted: #6f6b62;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--black);
+      border-bottom: 5px solid var(--orange);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .brand-stripes {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 34px;
+      transform: skew(-12deg);
+    }
+
+    .brand-stripes span {
+      display: block;
+      width: 6px;
+      background: var(--orange);
+    }
+
+    .brand-stripes span:nth-child(1) {
+      height: 17px;
+    }
+
+    .brand-stripes span:nth-child(2) {
+      height: 26px;
+      background: var(--yellow);
+    }
+
+    .brand-stripes span:nth-child(3) {
+      height: 34px;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name strong {
+      font-size: 28px;
+      letter-spacing: -1.8px;
+      font-weight: 900;
+    }
+
+    .brand-name small {
+      margin-top: 5px;
+      color: #c9c9c9;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .hero {
+      overflow: hidden;
+      position: relative;
+      background: var(--black);
+      color: var(--white);
+      padding: 84px 0 74px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 680px;
+      height: 680px;
+      right: -310px;
+      top: -335px;
+      border: 58px solid var(--orange);
+      border-radius: 50%;
+      opacity: 0.95;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: -205px;
+      top: -220px;
+      border: 28px solid var(--yellow);
+      border-radius: 50%;
+      opacity: 0.95;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 830px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      max-width: 820px;
+      font-size: clamp(48px, 7.5vw, 88px);
+      line-height: 0.91;
+      letter-spacing: -4.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: #e8e8e8;
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--orange);
+      border: 2px solid var(--orange);
+      color: var(--white);
+      padding: 13px 17px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.18s ease;
+    }
+
+    .button:hover {
+      background: var(--white);
+      color: var(--orange);
+    }
+
+    .button-outline {
+      background: transparent;
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .stats {
+      background: var(--yellow);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+      min-height: 118px;
+      padding: 24px;
+      border-right: 2px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .stat-label {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      gap: 28px;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 4.5vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -2.8px;
+      text-transform: uppercase;
+    }
+
+    .section-heading p {
+      margin: 0;
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .featured-download {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .feature-image {
+      background: var(--white);
+      border: 2px solid var(--black);
+      padding: 14px;
+    }
+
+    .feature-image img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .feature-info {
+      background: var(--black);
+      color: var(--white);
+      border: 2px solid var(--black);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-info h3 {
+      margin: 0;
+      color: var(--yellow);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+    }
+
+    .feature-info p {
+      margin: 18px 0 0;
+      color: #dddddd;
+      font-size: 16px;
+    }
+
+    .feature-list {
+      margin: 20px 0 0;
+      padding-left: 20px;
+      color: #eeeeee;
+      font-size: 15px;
+    }
+
+    .feature-list li {
+      margin-bottom: 9px;
+    }
+
+    .feature-buttons {
+      margin-top: auto;
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .feature-buttons a {
+      display: inline-block;
+      background: var(--orange);
+      border: 2px solid var(--orange);
+      color: var(--white);
+      padding: 11px 13px;
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .feature-buttons a:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .download-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .download-preview {
+      background: #ffffff;
+      border-bottom: 2px solid var(--black);
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .download-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+    }
+
+    .download-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 5px 7px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+    }
+
+    .download-body h3 {
+      margin: 16px 0 10px;
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .download-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .download-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .download-links a {
+      display: inline-block;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .download-links a:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .how-to {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .how-to .section-heading p {
+      color: #e8eee3;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      border: 2px solid rgba(255, 255, 255, 0.78);
+      padding: 24px;
+      min-height: 245px;
+    }
+
+    .step-number {
+      color: var(--yellow);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .step h3 {
+      margin: 26px 0 10px;
+      font-size: 27px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .step p {
+      margin: 0;
+      color: #edf1ea;
+      font-size: 15px;
+    }
+
+    .legal-note {
+      background: var(--white);
+      border-top: 2px solid var(--black);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .legal-box {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .legal-title {
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      padding: 28px;
+    }
+
+    .legal-title h2 {
+      font-size: clamp(30px, 4vw, 48px);
+    }
+
+    .legal-copy {
+      border: 2px solid var(--black);
+      padding: 28px;
+      background: var(--paper);
+    }
+
+    .legal-copy p {
+      margin: 0 0 14px;
+      color: var(--black);
+      font-size: 15px;
+    }
+
+    .legal-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .cta {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .cta p {
+      max-width: 680px;
+      margin: 18px 0 0;
+      font-size: 18px;
+    }
+
+    .cta .button {
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--orange-dark);
+    }
+
+    .cta .button:hover {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-row p {
+      margin: 0;
+      color: #cfcfcf;
+      font-size: 13px;
+    }
+
+    .footer-row a {
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    @media (max-width: 950px) {
+      .featured-download,
+      .legal-box,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-grid,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        min-height: auto;
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 65px 0 58px;
+      }
+
+      .hero::before {
+        width: 430px;
+        height: 430px;
+        right: -270px;
+        top: -190px;
+        border-width: 45px;
+      }
+
+      .hero::after {
+        width: 300px;
+        height: 300px;
+        right: -185px;
+        top: -130px;
+      }
+
+      h1 {
+        letter-spacing: -2.7px;
+      }
+
+      .stats-grid,
+      .download-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: 100px;
+        border-right: none;
+        border-bottom: 2px solid var(--black);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="index.html" aria-label="ARCRA home">
+        <span class="brand-stripes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <span class="brand-name">
+          <strong>ARCRA</strong>
+          <small>American RC Rally Association</small>
+        </span>
+      </a>
+
+      <nav>
+        <a href="what-is-rc-rally.html">What Is RC Rally?</a>
+        <a href="index.html#directory">Directory</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="about-arcra.html">About ARCRA</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#support">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Free RC Rally Printables</span>
+
+          <h1>Downloads</h1>
+
+          <p class="hero-copy">
+            Printable RC rally course signs, billboard sheets, start gate
+            templates, finish boards, and course scenery files for building DIY
+            rally stages, rallycross layouts, and event displays.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#featured">Start Gate Kit</a>
+            <a class="button button-outline" href="#course-signs">Course Signs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <span class="stat-number">18x24</span>
+          <span class="stat-label">Corrugated Yard Sign Format</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">1/10</span>
+          <span class="stat-label">Scale Rally Course Focus</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">DIY</span>
+          <span class="stat-label">Print, Cut, Place, Race</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="featured">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Start Gate Kit</h2>
+
+          <p>
+            This is the main printable start gate setup. Print it on an 18x24
+            corrugated yard sign board, cut out the middle, and use it as a
+            physical RC rally start gate.
+          </p>
+        </div>
+
+        <div class="featured-download">
+          <div class="feature-image">
+            <img
+              src="Start%20Gate%20Instructions.png"
+              alt="Instruction image showing how to print, cut, and use an RC rally start gate"
+            />
+          </div>
+
+          <div class="feature-info">
+            <h3>Blank Rally Start Gate Template</h3>
+
+            <p>
+              A blank 18x24 rally start gate template. Use the open top area for
+              your own club logo, event name, sponsor logo, or artwork before
+              printing.
+            </p>
+
+            <ul class="feature-list">
+              <li>Print on 18x24 corrugated yard sign board.</li>
+              <li>Cut out the center opening with three cuts.</li>
+              <li>Use the frame as a start gate for your RC rally course.</li>
+              <li>The two FINISH boards mark either side of your finish line.</li>
+              <li>
+                If using wire H-stands, cut one long wire support for each side,
+                then cut the center span in half to support the two finish boards.
+              </li>
+            </ul>
+
+            <div class="feature-buttons">
+              <a href="Blank%20Template%2018x24.png" download>Download Template PNG</a>
+              <a href="Start%20Gate%20Instructions.png" download>Download Instructions PNG</a>
+              <a href="Start%20Gate%20Instructions.png" target="_blank" rel="noopener">Open Instructions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="course-signs">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Printable Course Signs</h2>
+
+          <p>
+            These billboard sheets are meant to be printed on 18x24 corrugated
+            yard sign board, cut out, and placed around the rally stage or
+            rallycross track as scenery, markers, and course detail.
+          </p>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card">
+            <div class="download-preview">
+              <img
+                src="billboard1fixed.png"
+                alt="Printable RC rally billboard sheet with brand boards and arrows"
+              />
+            </div>
+
+            <div class="download-body">
+              <span class="tag">18x24 Landscape</span>
+
+              <h3>Brand Billboard Sheet 1</h3>
+
+              <p>
+                Printable 1/10 scale RC rally billboard sheet with brand-style
+                course boards and large direction arrows. Print on corrugated
+                board, cut out the signs, and place them around the track.
+              </p>
+
+              <div class="download-links">
+                <a href="billboard1fixed.png" download>Download PNG</a>
+                <a href="billboard1fixed.png" target="_blank" rel="noopener">Open Preview</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="download-card">
+            <div class="download-preview">
+              <img
+                src="Billboards2.png"
+                alt="Printable RC rally billboard sheet with finish signs and direction boards"
+              />
+            </div>
+
+            <div class="download-body">
+              <span class="tag">18x24 Landscape</span>
+
+              <h3>Brand Billboard Sheet 2</h3>
+
+              <p>
+                Printable RC rally course sheet with parts boards, brand boards,
+                direction signs, and U-turn marker. Designed to be printed on
+                corrugated yard sign board and cut out.
+              </p>
+
+              <div class="download-links">
+                <a href="Billboards2.png" download>Download PNG</a>
+                <a href="Billboards2.png" target="_blank" rel="noopener">Open Preview</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="download-card">
+            <div class="download-preview">
+              <img
+                src="Blank%20Template%2018x24.png"
+                alt="Blank RC rally start gate template with finish boards"
+              />
+            </div>
+
+            <div class="download-body">
+              <span class="tag">Start Gate</span>
+
+              <h3>Blank Start Gate Template</h3>
+
+              <p>
+                Blank rally start gate template with two finish boards. Add your
+                own logo or event name, print on 18x24 corrugated board, and cut
+                out the center square to create the gate opening.
+              </p>
+
+              <div class="download-links">
+                <a href="Blank%20Template%2018x24.png" download>Download PNG</a>
+                <a href="Blank%20Template%2018x24.png" target="_blank" rel="noopener">Open Preview</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-to">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How to Use These</h2>
+
+          <p>
+            The goal is simple: print the boards, cut them out, place them on
+            your stage, and make your RC rally course feel like a real event.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">Step 01</div>
+
+            <h3>Print</h3>
+
+            <p>
+              Print the files on 18x24 corrugated yard sign board. This is the
+              same style of material used for common yard signs and small event
+              signs.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">Step 02</div>
+
+            <h3>Cut Out</h3>
+
+            <p>
+              Use a sharp razor or utility knife and a safe cutting surface.
+              Cut out the individual billboards, arrows, finish boards, or the
+              center opening of the start gate.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">Step 03</div>
+
+            <h3>Place Around Track</h3>
+
+            <p>
+              Mount the signs with H-stands, wire stakes, small wood supports,
+              tape, clips, or whatever works for your terrain. Place them around
+              the course as billboards, gate markers, and finish-line boards.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-note">
+      <div class="container legal-box">
+        <div class="legal-title">
+          <h2>Important Note</h2>
+        </div>
+
+        <div class="legal-copy">
+          <p>
+            These are fan-made printable course scenery files for RC rally use.
+            Brand names and logos shown on the printable signs belong to their
+            respective owners.
+          </p>
+
+          <p>
+            ARCRA is not claiming sponsorship, ownership, approval, partnership,
+            or endorsement from the brands shown. The purpose is to create
+            realistic-looking course scenery for hobby use.
+          </p>
+
+          <p>
+            For smaller 1/14 to 1/16 scale courses, these files can also be
+            printed smaller, such as 12x18, as long as the artwork is not
+            stretched or distorted.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-grid">
+        <div>
+          <h2>Have a Printable to Share?</h2>
+
+          <p>
+            If you made RC rally signs, timing sheets, stage cards, cone rules,
+            rally maps, templates, or other useful files, send them in and we
+            may add them to the ARCRA downloads page.
+          </p>
+        </div>
+
+        <div>
+          <a
+            class="button"
+            href="mailto:AmericanRCrallyAssociation@gmail.com?subject=ARCRA%20Download%20Submission&body=File%20name%3A%0A%0AWhat%20is%20it%20for%3A%0A%0AWho%20made%20it%3A%0A%0ALink%20or%20notes%3A"
+          >
+            Submit a Download
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>© 2026 American RC Rally Association. Independent grassroots directory.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
