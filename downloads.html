@@ -14,7 +14,6 @@
   <style>
     :root {
       --black: #111211;
-      --charcoal: #242622;
       --paper: #f4f1e8;
       --white: #ffffff;
       --orange: #e85d25;
@@ -142,41 +141,10 @@
     }
 
     .hero {
-      overflow: hidden;
-      position: relative;
       background: var(--black);
       color: var(--white);
-      padding: 84px 0 74px;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 680px;
-      height: 680px;
-      right: -310px;
-      top: -335px;
-      border: 58px solid var(--orange);
-      border-radius: 50%;
-      opacity: 0.95;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 460px;
-      height: 460px;
-      right: -205px;
-      top: -220px;
-      border: 28px solid var(--yellow);
-      border-radius: 50%;
-      opacity: 0.95;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 830px;
+      padding: 82px 0 72px;
+      border-bottom: 2px solid var(--black);
     }
 
     .eyebrow {
@@ -192,7 +160,7 @@
 
     h1 {
       margin: 18px 0 0;
-      max-width: 820px;
+      max-width: 830px;
       font-size: clamp(48px, 7.5vw, 88px);
       line-height: 0.91;
       letter-spacing: -4.5px;
@@ -200,7 +168,7 @@
     }
 
     .hero-copy {
-      max-width: 650px;
+      max-width: 700px;
       margin: 24px 0 0;
       color: #e8e8e8;
       font-size: 18px;
@@ -222,7 +190,6 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 900;
-      transition: 0.18s ease;
     }
 
     .button:hover {
@@ -252,7 +219,7 @@
     }
 
     .stat {
-      min-height: 118px;
+      min-height: 115px;
       padding: 24px;
       border-right: 2px solid var(--black);
       display: flex;
@@ -275,19 +242,18 @@
       margin-top: 6px;
       font-size: 12px;
       font-weight: 900;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
     section {
-      padding: 76px 0;
+      padding: 74px 0;
     }
 
     .section-heading {
       display: flex;
-      gap: 28px;
-      align-items: flex-end;
       justify-content: space-between;
+      align-items: flex-end;
+      gap: 28px;
       margin-bottom: 30px;
     }
 
@@ -300,8 +266,8 @@
     }
 
     .section-heading p {
+      max-width: 620px;
       margin: 0;
-      max-width: 610px;
       color: var(--muted);
       font-size: 16px;
     }
@@ -538,10 +504,6 @@
       padding: 28px;
     }
 
-    .legal-title h2 {
-      font-size: clamp(30px, 4vw, 48px);
-    }
-
     .legal-copy {
       border: 2px solid var(--black);
       padding: 28px;
@@ -642,22 +604,7 @@
       }
 
       .hero {
-        padding: 65px 0 58px;
-      }
-
-      .hero::before {
-        width: 430px;
-        height: 430px;
-        right: -270px;
-        top: -190px;
-        border-width: 45px;
-      }
-
-      .hero::after {
-        width: 300px;
-        height: 300px;
-        right: -185px;
-        top: -130px;
+        padding: 60px 0 54px;
       }
 
       h1 {
@@ -686,7 +633,7 @@
       }
 
       section {
-        padding: 58px 0;
+        padding: 56px 0;
       }
     }
   </style>
@@ -722,21 +669,19 @@
   <main id="top">
     <section class="hero">
       <div class="container">
-        <div class="hero-content">
-          <span class="eyebrow">Free RC Rally Printables</span>
+        <span class="eyebrow">Free RC Rally Printables</span>
 
-          <h1>Downloads</h1>
+        <h1>Downloads</h1>
 
-          <p class="hero-copy">
-            Printable RC rally course signs, billboard sheets, start gate
-            templates, finish boards, and course scenery files for building DIY
-            rally stages, rallycross layouts, and event displays.
-          </p>
+        <p class="hero-copy">
+          Printable RC rally course signs, billboard sheets, start gate
+          templates, finish boards, and course scenery files for building DIY
+          rally stages, rallycross layouts, and event displays.
+        </p>
 
-          <div class="hero-actions">
-            <a class="button" href="#featured">Start Gate Kit</a>
-            <a class="button button-outline" href="#course-signs">Course Signs</a>
-          </div>
+        <div class="hero-actions">
+          <a class="button" href="#featured">Start Gate Kit</a>
+          <a class="button button-outline" href="#course-signs">Course Signs</a>
         </div>
       </div>
     </section>
@@ -766,16 +711,15 @@
           <h2>Start Gate Kit</h2>
 
           <p>
-            This is the main printable start gate setup. Print it on an 18x24
-            corrugated yard sign board, cut out the middle, and use it as a
-            physical RC rally start gate.
+            Print the blank template on an 18x24 corrugated yard sign board,
+            cut out the middle, and use it as a physical RC rally start gate.
           </p>
         </div>
 
         <div class="featured-download">
           <div class="feature-image">
             <img
-              src="StartGateInstructions.png"
+              src="StartGate.png"
               alt="Instruction image showing how to print, cut, and use an RC rally start gate"
             />
           </div>
@@ -802,8 +746,8 @@
 
             <div class="feature-buttons">
               <a href="BlankTemplate18x24.png" download>Download Template PNG</a>
-              <a href="StartGateInstructions.png" download>Download Instructions PNG</a>
-              <a href="StartGateInstructions.png" target="_blank" rel="noopener">Open Instructions</a>
+              <a href="StartGate.png" download>Download Instructions PNG</a>
+              <a href="StartGate.png" target="_blank" rel="noopener">Open Instructions</a>
             </div>
           </div>
         </div>
@@ -910,8 +854,8 @@
           <h2>How to Use These</h2>
 
           <p>
-            The goal is simple: print the boards, cut them out, place them on
-            your stage, and make your RC rally course feel like a real event.
+            Print the boards, cut them out, place them on your stage, and make
+            your RC rally course feel like a real event.
           </p>
         </div>
 
