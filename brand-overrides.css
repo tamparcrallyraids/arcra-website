@@ -30,4 +30,7 @@ h1,h2,h3,.brand-name strong { font-family:"Arial Narrow","Roboto Condensed",Aria
 .how-it-works { background:linear-gradient(135deg,rgba(12,49,95,.97),rgba(5,7,10,.98)); }
 footer { border-top:4px solid var(--orange); }
 @media (max-width:650px) { .brand-logo { width:58px; height:58px; } .hero { background-position:62% center; } .hero::before,.hero::after { display:none; } }
+.brand::before { content:""; display:block; width:68px; height:68px; flex:0 0 auto; background:#05070a url("https://drive.google.com/thumbnail?id=1RStt5ROEcsJYsX-m4_tT7opOhaQyA-3Z&sz=w400") center/contain no-repeat; border-radius:50%; }
+.brand-stripes { display:none; }
+@media (max-width:650px) { .brand::before { width:58px; height:58px; } }
 
