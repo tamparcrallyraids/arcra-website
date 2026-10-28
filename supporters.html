@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Supporters | ARCRA</title>
+
+  <meta
+    name="description"
+    content="Groups that support and attend RC rally events in the ARCRA community."
+  />
+
+  <style>
+    :root {
+      --black: #111211;
+      --charcoal: #242622;
+      --paper: #f4f1e8;
+      --white: #ffffff;
+      --orange: #e85d25;
+      --orange-dark: #b94316;
+      --yellow: #f3c84c;
+      --green: #5f7558;
+      --line: #d6d0c2;
+      --muted: #6f6b62;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      background: var(--black);
+      border-bottom: 5px solid var(--orange);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .brand-stripes {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 34px;
+      transform: skew(-12deg);
+    }
+
+    .brand-stripes span {
+      display: block;
+      width: 6px;
+      background: var(--orange);
+    }
+
+    .brand-stripes span:nth-child(1) {
+      height: 17px;
+    }
+
+    .brand-stripes span:nth-child(2) {
+      height: 26px;
+      background: var(--yellow);
+    }
+
+    .brand-stripes span:nth-child(3) {
+      height: 34px;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name strong {
+      font-size: 28px;
+      letter-spacing: -1.8px;
+      font-weight: 900;
+    }
+
+    .brand-name small {
+      margin-top: 5px;
+      color: #c9c9c9;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    /* HERO */
+
+    .hero {
+      overflow: hidden;
+      position: relative;
+      background: var(--black);
+      color: var(--white);
+      padding: 84px 0 74px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      right: -290px;
+      top: -335px;
+      border: 60px solid var(--orange);
+      border-radius: 50%;
+      opacity: 0.96;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -200px;
+      top: -220px;
+      border: 28px solid var(--yellow);
+      border-radius: 50%;
+      opacity: 0.95;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      max-width: 780px;
+      font-size: clamp(48px, 7.5vw, 88px);
+      line-height: 0.91;
+      letter-spacing: -4.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      max-width: 635px;
+      margin: 24px 0 0;
+      color: #e8e8e8;
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--orange);
+      border: 2px solid var(--orange);
+      color: var(--white);
+      padding: 13px 17px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.18s ease;
+    }
+
+    .button:hover {
+      background: var(--white);
+      color: var(--orange);
+    }
+
+    .button-outline {
+      background: transparent;
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* STATS */
+
+    .stats {
+      background: var(--yellow);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+      min-height: 125px;
+      padding: 25px;
+      border-right: 2px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .stat-label {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      gap: 28px;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 4.5vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -2.8px;
+      text-transform: uppercase;
+    }
+
+    .section-heading p {
+      margin: 0;
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* DIRECTORY */
+
+    .directory-tools {
+      display: grid;
+      grid-template-columns: 1fr 210px;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .directory-tools input,
+    .directory-tools select {
+      width: 100%;
+      min-height: 52px;
+      border: 2px solid var(--black);
+      border-radius: 0;
+      background: var(--white);
+      color: var(--black);
+      padding: 12px 14px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .directory-tools input:focus,
+    .directory-tools select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232, 93, 37, 0.16);
+    }
+
+    .directory-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin: -6px 0 20px;
+    }
+
+    .club-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .club-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      padding: 22px;
+    }
+
+    .club-card.hidden {
+      display: none;
+    }
+
+    .club-card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .club-region {
+      color: var(--orange-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .club-type {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 5px 7px;
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .club-card h3 {
+      margin: 18px 0 10px;
+      font-size: 25px;
+      line-height: 0.98;
+      letter-spacing: -1px;
+    }
+
+    .club-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .club-links {
+      margin-top: auto;
+      padding-top: 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .club-links a {
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .club-links a:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    /* HOW IT WORKS */
+
+    .how-it-works {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .how-it-works .section-heading p {
+      color: #e8eee3;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      padding: 24px;
+      min-height: 230px;
+    }
+
+    .step-number {
+      color: var(--yellow);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .step h3 {
+      margin: 28px 0 9px;
+      font-size: 27px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .step p {
+      margin: 0;
+      color: #edf1ea;
+      font-size: 15px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 17px;
+    }
+
+    .about-main,
+    .about-side {
+      border: 2px solid var(--black);
+      padding: 30px;
+    }
+
+    .about-main {
+      background: var(--white);
+    }
+
+    .about-main p {
+      max-width: 670px;
+      margin: 18px 0 0;
+      font-size: 18px;
+    }
+
+    .about-side {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .about-side h3 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .about-side p {
+      margin: 0;
+      color: #d7d7d7;
+      font-size: 15px;
+    }
+
+    /* SUBMIT */
+
+    .submit {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .submit-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .submit h2 {
+      max-width: 700px;
+    }
+
+    .submit p {
+      max-width: 670px;
+      margin: 18px 0 0;
+      font-size: 18px;
+    }
+
+    .submit .button {
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--orange-dark);
+    }
+
+    .submit .button:hover {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 30px 0;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-row p {
+      margin: 0;
+      color: #cfcfcf;
+      font-size: 13px;
+    }
+
+    .footer-row a {
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .club-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .submit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        min-height: auto;
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 65px 0 58px;
+      }
+
+      .hero::before {
+        width: 430px;
+        height: 430px;
+        right: -270px;
+        top: -190px;
+        border-width: 45px;
+      }
+
+      .hero::after {
+        width: 300px;
+        height: 300px;
+        right: -185px;
+        top: -130px;
+      }
+
+      h1 {
+        letter-spacing: -2.7px;
+      }
+
+      .stats-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: 100px;
+        border-right: none;
+        border-bottom: 2px solid var(--black);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .directory-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .club-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="brand-overrides.css" />
+<style>nav a[aria-current="page"]{color:var(--yellow)} .supporter-note{color:var(--muted);font-size:13px} .club-grid{margin-top:30px}</style></head>
+
+
+<body id="top">
+<header>
+    <div class="container topbar">
+      <a class="brand" href="#top" aria-label="ARCRA home">
+        <span class="brand-stripes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <span class="brand-name">
+          <strong>ARCRA</strong>
+          <small>American RC Rally Association</small>
+        </span>
+      </a>
+
+      <nav>
+        <a href="what-is-rc-rally.html">What Is RC Rally?</a>
+        <a href="index.html#directory">Directory</a>
+        <a href="about-arcra.html">About ARCRA</a>
+        <a href="events.html">Events</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="supporters.html" aria-current="page">Supporters</a>
+        <a href="index.html#support">Support</a>
+        <a href="index.html#add-a-club">Add a Club</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <section class="hero">
+    <div class="container"><div class="hero-content">
+      <span class="eyebrow">The RC Rally Community</span>
+      <h1>RC Rally Supporters</h1>
+      <p class="hero-copy">Meet the groups that support and attend RC events, helping the community grow every time they show up.</p>
+      <div class="hero-actions">
+        <a class="button" href="#supporters">Browse Supporters</a>
+        <a class="button button-outline" href="#add-a-supporter">Suggest a Supporter</a>
+      </div>
+    </div></div>
+  </section>
+  <section id="supporters">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Supporter Directory</h2>
+        <p>These groups support and attend RC events. For clubs and organizers that host events, visit the <a href="index.html#directory">Club Directory</a>.</p>
+      </div>
+      <div class="club-grid">
+        <article class="club-card">
+          <div class="club-card-top"><span class="club-type">Community Supporter</span></div>
+          <h3>Broken Axle Racing</h3>
+          <p>A community group that supports and attends RC events. Follow their RC community on Instagram and YouTube.</p>
+          <div class="club-links">
+            <a href="https://www.instagram.com/broken_axle_rock_crawlers/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.youtube.com/@brokenaxlerockcrawlers1085" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="submit" id="add-a-supporter">
+    <div class="container submit-grid">
+      <div><h2>Know a Supporter?</h2><p>Send the group's name, location, public website or social link, and a short description of how they support or attend RC events.</p></div>
+      <div><a class="button" href="mailto:AmericanRCrallyAssociation@gmail.com?subject=ARCRA%20Supporter%20Submission&amp;body=Group%20name%3A%0A%0ALocation%3A%0A%0AWebsite%20or%20social%20link%3A%0A%0AHow%20the%20group%20supports%20or%20attends%20RC%20events%3A">Submit a Supporter</a></div>
+    </div>
+  </section>
+</main>
+<footer>
+    <div class="container footer-row">
+      <p>© 2026 American RC Rally Association. Independent grassroots directory.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
+
