@@ -503,17 +503,24 @@
         min-height: 650px;
       }
     }
-      .event-videos { padding-top: 0; }
-    .video-submission { background: var(--white); border: 2px solid var(--black); padding: clamp(20px, 4vw, 36px); border-radius: 4px; box-shadow: 7px 7px 0 rgba(5, 7, 10, 0.1); }
-    .video-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    .video-submission label { display: block; font-size: 14px; font-weight: 800; }
-    .video-submission input, .video-submission textarea { display: block; width: 100%; margin-top: 8px; padding: 12px; border: 2px solid var(--muted); border-radius: 3px; background: var(--white); color: var(--black); font: inherit; }
-    .video-submission input:focus, .video-submission textarea:focus { outline: 3px solid var(--yellow); outline-offset: 2px; }
-    .video-form-wide { grid-column: 1 / -1; }
-    .video-submission .button { cursor: pointer; font-family: inherit; margin-top: 20px; }
-    .video-form-status { color: var(--muted); font-size: 14px; }
-    @media (max-width: 650px) { .video-form-grid { grid-template-columns: 1fr; } }
-</style>
+      .event-videos { padding-top: 0; scroll-margin-top: 160px; }
+    .video-feed-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .video-refresh { padding: 12px 16px; background: var(--white); border: 2px solid var(--black); color: var(--black); font: inherit; font-weight: 700; cursor: pointer; }
+    .video-refresh:disabled { opacity: .6; cursor: wait; }
+    .video-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+    .video-card { border: 2px solid var(--black); background: var(--white); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+    .video-card img, .video-playlist-art { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--charcoal); }
+    .video-playlist-art { display: grid; place-items: center; color: var(--white); font-size: 24px; font-weight: 900; letter-spacing: 1px; }
+    .video-card-content { padding: 22px; display: flex; flex-direction: column; flex: 1; align-items: flex-start; }
+    .video-card h3 { margin: 0 0 20px; font-size: 24px; overflow-wrap: anywhere; }
+    .video-card .button { margin-top: auto; }
+    .video-submission { margin-top: 48px; background: var(--white); border: 2px solid var(--black); padding: clamp(16px, 3vw, 30px); border-radius: 4px; scroll-margin-top: 160px; }
+    .video-submission h3 { margin-top: 0; font-size: 28px; }
+    .video-submission iframe { width: 100%; height: 780px; border: 0; display: block; }
+    .video-feed-actions a:focus-visible, .video-refresh:focus-visible, .video-card a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+    @media (max-width: 900px) { .video-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 650px) { .video-gallery { grid-template-columns: 1fr; } .video-submission { padding: 16px 8px; } }
+  </style>
   <link rel="stylesheet" href="brand-overrides.css" />
 </head>
 
@@ -608,35 +615,22 @@
       <div class="container">
         <div class="section-heading">
           <h2 id="past-videos-heading">Relive the Rally</h2>
-          <p>Have footage from a past RC event? Share a YouTube video or playlist so the community can see the stages, the cars, and the people who made it happen.</p>
+          <p>Watch videos and playlists shared by the RC community, or post footage from a past event. Links appear automatically after submission.</p>
         </div>
-        <form class="video-submission" id="eventVideoForm">
-          <div class="video-form-grid">
-            <label>Event name
-              <input name="eventName" autocomplete="off" required maxlength="150" placeholder="Which event is featured?" />
-            </label>
-            <label>Event date (optional)
-              <input name="eventDate" type="date" />
-            </label>
-            <label class="video-form-wide">YouTube video or playlist link
-              <input name="youtubeUrl" type="url" required placeholder="https://www.youtube.com/watch?v=... or playlist?list=..." aria-describedby="video-link-help" />
-            </label>
-            <label>Location (optional)
-              <input name="location" maxlength="150" placeholder="City, state, or venue" />
-            </label>
-            <label>Your name or group (optional)
-              <input name="submitter" autocomplete="name" maxlength="150" />
-            </label>
-            <label class="video-form-wide">About the video (optional)
-              <textarea name="notes" rows="3" maxlength="1500" placeholder="Highlights, featured club, or anything viewers should know"></textarea>
-            </label>
-          </div>
-          <p class="calendar-note" id="video-link-help">Share a public YouTube video or playlist from a past RC event. Submissions are reviewed before links are added to the site.</p>
-          <button class="button" type="submit">Submit a Video Link</button>
-          <p class="video-form-status">This opens an email draft with your event details. Send the email to complete your submission.</p>
-          <p class="video-form-status" id="videoSubmissionStatus" role="status" aria-live="polite"></p>
-          <noscript><p>Email your event name and YouTube link to <a href="mailto:AmericanRCrallyAssociation@gmail.com">AmericanRCrallyAssociation@gmail.com</a>.</p></noscript>
-        </form>
+        <div class="video-feed-actions">
+          <a class="button" href="#post-event-video">Post a Video or Playlist</a>
+          <button class="video-refresh" id="refreshVideos" type="button">Refresh videos</button>
+        </div>
+        <p class="calendar-note" id="videoFeedStatus" role="status" aria-live="polite">Loading event videos...</p>
+        <div class="video-gallery" id="videoGallery"></div>
+        <p class="calendar-note">New submissions may take a few minutes to appear. The gallery refreshes automatically.</p>
+        <div class="video-submission" id="post-event-video">
+          <h3>Share Your Event Footage</h3>
+          <p>Add an event name and a public YouTube video or playlist link. Your submission will be posted publicly without a review step.</p>
+          <iframe id="videoSubmissionFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSeUpYUwV6JEdzfFXHaPjv2jZ8oiP5PPA4GEkNVE9SJPuz4e1w/viewform?embedded=true" title="Post an RC event video or playlist" loading="lazy">Loading submission form...</iframe>
+          <p class="calendar-note">Form not loading? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUpYUwV6JEdzfFXHaPjv2jZ8oiP5PPA4GEkNVE9SJPuz4e1w/viewform" target="_blank" rel="noopener noreferrer">Open the submission form</a>.</p>
+        </div>
+        <noscript><p>Enable JavaScript to view the latest event videos. You can still use the submission form above.</p></noscript>
       </div>
     </section>
 
@@ -677,35 +671,7 @@
     </div>
   </footer>
 
-  <script>
-    const videoForm = document.getElementById('eventVideoForm');
-    const youtubeInput = videoForm.elements.youtubeUrl;
-    youtubeInput.addEventListener('input', () => youtubeInput.setCustomValidity(''));
-    videoForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const data = new FormData(videoForm);
-      const url = new URL(data.get('youtubeUrl').trim());
-      const host = url.hostname.toLowerCase();
-      const youtubeHost = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'music.youtube.com'].includes(host);
-      const validVideo = youtubeHost && ((url.pathname === '/watch' && url.searchParams.get('v')) || (url.pathname === '/playlist' && url.searchParams.get('list')) || /^\/(shorts|live|embed)\/[^/]+/.test(url.pathname));
-      const validShortLink = host === 'youtu.be' && /^\/[^/]+/.test(url.pathname);
-      if (!['https:', 'http:'].includes(url.protocol) || !(validVideo || validShortLink)) {
-        youtubeInput.setCustomValidity('Please enter a YouTube video or playlist link.');
-        youtubeInput.reportValidity();
-        return;
-      }
-      const body = [
-        'Event name: ' + data.get('eventName').trim(),
-        'Event date: ' + (data.get('eventDate') || 'Not provided'),
-        'YouTube link: ' + url.href,
-        'Location: ' + (data.get('location').trim() || 'Not provided'),
-        'Submitted by: ' + (data.get('submitter').trim() || 'Not provided'),
-        '', 'About the video:', data.get('notes').trim()
-      ].join('\n');
-      window.location.href = 'mailto:AmericanRCrallyAssociation@gmail.com?subject=' + encodeURIComponent('ARCRA Past Event Video: ' + data.get('eventName').trim()) + '&body=' + encodeURIComponent(body);
-      document.getElementById('videoSubmissionStatus').textContent = 'Email draft requested. Send it to complete your submission. If your email app did not open, email the details to AmericanRCrallyAssociation@gmail.com.';
-    });
-  </script>
+  <script src="event-videos.js" defer></script>
 </body>
 </html>
 
